@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon Portfolio</title>
+  <title>Portfolio - Introduction aux Systèmes d'Information</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
@@ -16,7 +16,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .project:hover {
+    .item:hover {
       transform: scale(1.02);
       transition: transform 0.3s ease;
     }
@@ -28,41 +28,99 @@
 </head>
 <body class="bg-gray-100 font-sans text-gray-800">
   <header class="bg-gray-900 text-white text-center py-10">
-    <h1 class="text-4xl font-bold">Mon Portfolio</h1>
-    <p class="mt-2 text-lg">Bienvenue sur mon site personnel</p>
+    <h1 class="text-4xl font-bold">Portfolio - Introduction aux Systèmes d'Information</h1>
+    <p class="mt-2 text-lg">Semestre 5 - Parcours MIAGE - [Ton Nom]</p>
     <nav class="mt-6">
       <a href="#about" class="mx-4 text-lg hover:text-blue-500">À propos</a>
       <a href="#skills" class="mx-4 text-lg hover:text-blue-500">Compétences</a>
-      <a href="#projects" class="mx-4 text-lg hover:text-blue-500">Projets</a>
+      <a href="#travaux" class="mx-4 text-lg hover:text-blue-500">Travaux</a>
+      <a href="#notes" class="mx-4 text-lg hover:text-blue-500">Notes de Cours</a>
+      <a href="#documents" class="mx-4 text-lg hover:text-blue-500">Documents SI</a>
+      <a href="#certifications" class="mx-4 text-lg hover:text-blue-500">Certifications</a>
+      <a href="#projet" class="mx-4 text-lg hover:text-blue-500">Projet Final</a>
+      <a href="#diaporama" class="mx-4 text-lg hover:text-blue-500">Diaporama</a>
+      <a href="#ressources" class="mx-4 text-lg hover:text-blue-500">Autres Ressources</a>
       <a href="#contact" class="mx-4 text-lg hover:text-blue-500">Contact</a>
     </nav>
   </header>
 
   <section id="about" class="py-12 max-w-5xl mx-auto fade-in">
     <h2 class="text-3xl font-semibold text-center mb-6">À propos</h2>
-    <p class="text-lg text-center">Je suis [Ton Nom], développeur passionné par le web et la technologie. J'aime créer des solutions innovantes et des interfaces utilisateur intuitives.</p>
+    <p class="text-lg text-center">Je suis [Ton Nom], étudiant en MIAGE Semestre 5. Ce portfolio centralise tous mes travaux pour le module Introduction aux Systèmes d'Information.</p>
   </section>
 
   <section id="skills" class="py-12 max-w-5xl mx-auto bg-white fade-in">
     <h2 class="text-3xl font-semibold text-center mb-6">Compétences</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-      <div class="p-4"><i class="fas fa-code text-2xl text-blue-500"></i><p class="mt-2">HTML/CSS</p></div>
-      <div class="p-4"><i class="fab fa-js text-2xl text-yellow-500"></i><p class="mt-2">JavaScript</p></div>
-      <div class="p-4"><i class="fab fa-react text-2xl text-blue-400"></i><p class="mt-2">React</p></div>
-      <div class="p-4"><i class="fas fa-database text-2xl text-green-500"></i><p class="mt-2">SQL</p></div>
+      <div class="p-4"><i class="fas fa-code text-2xl text-blue-500"></i><p class="mt-2">HTML/CSS/JS</p></div>
+      <div class="p-4"><i class="fab fa-git text-2xl text-orange-500"></i><p class="mt-2">Git (init, add, commit, push)</p></div>
+      <div class="p-4"><i class="fas fa-database text-2xl text-green-500"></i><p class="mt-2">Systèmes d'Information</p></div>
+      <div class="p-4"><i class="fas fa-file-pdf text-2xl text-red-500"></i><p class="mt-2">Gestion de Documents</p></div>
     </div>
   </section>
 
-  <section id="projects" class="py-12 max-w-5xl mx-auto fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">Projets</h2>
-    <div class="project bg-white p-6 mb-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-bold">Projet 1</h3>
-      <p class="mt-2">Description rapide du projet. <a href="https://github.com/tonprofil/projet1" target="_blank" class="text-blue-500 hover:underline">Voir sur GitHub</a></p>
+  <section id="travaux" class="py-12 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 1 : Travaux Demandés</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="item bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold">Travail 1</h3>
+        <p class="mt-2">Description. <a href="/travaux/travail1.pdf" target="_blank" class="text-blue-500 hover:underline">Télécharger PDF</a></p>
+      </div>
+      <!-- Ajoute d'autres travaux ici -->
     </div>
-    <div class="project bg-white p-6 mb-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-bold">Projet 2</h3>
-      <p class="mt-2">Description rapide du projet. <a href="https://github.com/tonprofil/projet2" target="_blank" class="text-blue-500 hover:underline">Voir sur GitHub</a></p>
+  </section>
+
+  <section id="notes" class="py-12 max-w-5xl mx-auto bg-white fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 2 : Notes de Cours Individuelles</h2>
+    <div class="item bg-white p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold">Notes Séance 1</h3>
+      <p class="mt-2">Contenu des notes ici, ou <a href="/notes/notes1.pdf" target="_blank" class="text-blue-500 hover:underline">Voir PDF</a>.</p>
     </div>
+    <!-- Ajoute d'autres notes -->
+  </section>
+
+  <section id="documents" class="py-12 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 3 : Documents d'un Système d'Information</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="item bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold">Document 1</h3>
+        <p class="mt-2">Description. <a href="/documents/doc1.pdf" target="_blank" class="text-blue-500 hover:underline">Voir Document</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="py-12 max-w-5xl mx-auto bg-white fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 4 : Les Certifications</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="item bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold">Certification 1</h3>
+        <p class="mt-2"><a href="/certifications/cert1.pdf" target="_blank" class="text-blue-500 hover:underline">Voir Certificat</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projet" class="py-12 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 5 : Le Projet Final</h2>
+    <div class="item bg-white p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold">Projet Final</h3>
+      <p class="mt-2">Description du projet. <a href="/projet/projet_final.pdf" target="_blank" class="text-blue-500 hover:underline">Documentation</a> | <a href="https://github.com/tonprofil/projet" target="_blank">Code sur GitHub</a></p>
+    </div>
+  </section>
+
+  <section id="diaporama" class="py-12 max-w-5xl mx-auto bg-white fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 6 : Diaporama pour la Soutenance</h2>
+    <div class="item bg-white p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold">Diaporama</h3>
+      <p class="mt-2"><a href="/diaporama/soutenance.pptx" target="_blank" class="text-blue-500 hover:underline">Télécharger PPTX</a> ou <object data="/diaporama/soutenance.pdf" type="application/pdf" width="100%" height="500px"></object></p>
+    </div>
+  </section>
+
+  <section id="ressources" class="py-12 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 7 : Autres Ressources</h2>
+    <ul class="list-disc pl-6">
+      <li><a href="https://example.com/ressource1" target="_blank" class="text-blue-500 hover:underline">Ressource 1 (référencée)</a></li>
+      <!-- Ajoute d'autres -->
+    </ul>
   </section>
 
   <section id="contact" class="py-12 max-w-5xl mx-auto fade-in">
@@ -72,7 +130,7 @@
   </section>
 
   <footer class="bg-gray-900 text-white text-center py-6">
-    <p>&copy; 2025 Ton Nom</p>
+    <p>&copy; 2025 [Ton Nom] - Hébergé sur GitHub Pages</p>
   </footer>
 
   <script>
