@@ -1,93 +1,93 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mon Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      color: #333;
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    header {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
-    header h1 {
-      margin: 0;
+    .project:hover {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
     }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    .project {
-      background: white;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: white;
-      margin-top: 2rem;
+    nav a:hover {
+      color: #3b82f6;
+      transition: color 0.3s ease;
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Mon Portfolio</h1>
-    <p>Bienvenue sur mon site personnel</p>
-    <nav>
-      <a href="#about">À propos</a>
-      <a href="#projects">Projets</a>
-      <a href="#contact">Contact</a>
+<body class="bg-gray-100 font-sans text-gray-800">
+  <header class="bg-gray-900 text-white text-center py-10">
+    <h1 class="text-4xl font-bold">Mon Portfolio</h1>
+    <p class="mt-2 text-lg">Bienvenue sur mon site personnel</p>
+    <nav class="mt-6">
+      <a href="#about" class="mx-4 text-lg hover:text-blue-500">À propos</a>
+      <a href="#skills" class="mx-4 text-lg hover:text-blue-500">Compétences</a>
+      <a href="#projects" class="mx-4 text-lg hover:text-blue-500">Projets</a>
+      <a href="#contact" class="mx-4 text-lg hover:text-blue-500">Contact</a>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>À propos</h2>
-    <p>Je suis [Ton Nom], développeur passionné par le web et la technologie.</p>
+  <section id="about" class="py-12 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">À propos</h2>
+    <p class="text-lg text-center">Je suis [Ton Nom], développeur passionné par le web et la technologie. J'aime créer des solutions innovantes et des interfaces utilisateur intuitives.</p>
   </section>
 
-  <section id="projects">
-    <h2>Projets</h2>
-    <div class="project">
-      <h3>Projet 1</h3>
-      <p>Description rapide du projet. <a href="https://github.com/tonprofil/projet1" target="_blank">Voir sur GitHub</a></p>
-    </div>
-    <div class="project">
-      <h3>Projet 2</h3>
-      <p>Description rapide du projet. <a href="https://github.com/tonprofil/projet2" target="_blank">Voir sur GitHub</a></p>
+  <section id="skills" class="py-12 max-w-5xl mx-auto bg-white fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">Compétences</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div class="p-4"><i class="fas fa-code text-2xl text-blue-500"></i><p class="mt-2">HTML/CSS</p></div>
+      <div class="p-4"><i class="fab fa-js text-2xl text-yellow-500"></i><p class="mt-2">JavaScript</p></div>
+      <div class="p-4"><i class="fab fa-react text-2xl text-blue-400"></i><p class="mt-2">React</p></div>
+      <div class="p-4"><i class="fas fa-database text-2xl text-green-500"></i><p class="mt-2">SQL</p></div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>📧 ton.email@example.com</p>
-    <p>🔗 <a href="https://github.com/tonprofil" target="_blank">Mon GitHub</a></p>
+  <section id="projects" class="py-12 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">Projets</h2>
+    <div class="project bg-white p-6 mb-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold">Projet 1</h3>
+      <p class="mt-2">Description rapide du projet. <a href="https://github.com/tonprofil/projet1" target="_blank" class="text-blue-500 hover:underline">Voir sur GitHub</a></p>
+    </div>
+    <div class="project bg-white p-6 mb-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold">Projet 2</h3>
+      <p class="mt-2">Description rapide du projet. <a href="https://github.com/tonprofil/projet2" target="_blank" class="text-blue-500 hover:underline">Voir sur GitHub</a></p>
+    </div>
   </section>
 
-  <footer>
+  <section id="contact" class="py-12 max-w-5xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold text-center mb-6">Contact</h2>
+    <p class="text-lg text-center"><i class="fas fa-envelope mr-2"></i> ton.email@example.com</p>
+    <p class="text-lg text-center mt-2"><i class="fab fa-github mr-2"></i> <a href="https://github.com/tonprofil" target="_blank" class="text-blue-500 hover:underline">Mon GitHub</a></p>
+  </section>
+
+  <footer class="bg-gray-900 text-white text-center py-6">
     <p>&copy; 2025 Ton Nom</p>
   </footer>
+
+  <script>
+    // Animation au défilement
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      elements.forEach(element => observer.observe(element));
+    });
+  </script>
 </body>
 </html>
-```
