@@ -1,150 +1,504 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Introduction aux Systèmes d'Information</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <title>Portfolio - Introduction aux SI - Romain Thierry</title>
+  <meta name="description" content="Portfolio académique MIAGE - Introduction aux Systèmes d'Information - Semestre 5">
+  
+  <!-- Tailwind CSS (Via CDN pour ne pas avoir de fichiers locaux complexes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome pour les icônes -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts: Inter pour un look moderne et académique -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <script>
+    // Configuration Tailwind
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            univ: '#1e3a8a', // Bleu universitaire sérieux
+            accent: '#2563eb', // Bleu vif pour les interactions
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* Fond global propre et moderne */
+    body {
+      background-color: #f8fafc;
+      background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+      background-size: 32px 32px;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    /* Effet de verre pour les cartes */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .item:hover {
-      transform: scale(1.02);
-      transition: transform 0.3s ease;
+    
+    .glass-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
-    nav a:hover {
-      color: #3b82f6;
-      transition: color 0.3s ease;
+
+    /* Navigation fixe avec flou */
+    .nav-glass {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(226, 232, 240, 1);
+    }
+
+    /* Indicateur de rubrique */
+    .rubric-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      background-color: #1e3a8a;
+      color: white;
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .rubric-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
     }
   </style>
 </head>
-<body class="bg-gray-100 font-sans text-gray-800">
-  <header class="bg-gray-900 text-white text-center py-10">
-    <h1 class="text-4xl font-bold">Portfolio - Introduction aux Systèmes d'Information</h1>
-    <p class="mt-2 text-lg">Semestre 5 - Parcours MIAGE - Romain Thierry</p>
-    <nav class="mt-6">
-      <a href="#about" class="mx-4 text-lg hover:text-blue-500">À propos</a>
-      <a href="#skills" class="mx-4 text-lg hover:text-blue-500">Compétences</a>
-      <a href="#travaux" class="mx-4 text-lg hover:text-blue-500">Travaux</a>
-      <a href="#notes" class="mx-4 text-lg hover:text-blue-500">Notes de Cours</a>
-      <a href="#documents" class="mx-4 text-lg hover:text-blue-500">Documents SI</a>
-      <a href="#certifications" class="mx-4 text-lg hover:text-blue-500">Certifications</a>
-      <a href="#projet" class="mx-4 text-lg hover:text-blue-500">Projet Final</a>
-      <a href="#diaporama" class="mx-4 text-lg hover:text-blue-500">Diaporama</a>
-      <a href="#ressources" class="mx-4 text-lg hover:text-blue-500">Autres Ressources</a>
-      <a href="#contact" class="mx-4 text-lg hover:text-blue-500">Contact</a>
-    </nav>
+<body class="text-slate-800 antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 nav-glass" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo / Nom -->
+        <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+          <span class="font-bold text-xl text-univ tracking-tight">PORTFOLIO<span class="text-accent">.MIAGE</span></span>
+        </div>
+        
+        <!-- Menu Desktop (Liens rapides) -->
+        <div class="hidden lg:flex space-x-6 items-center text-sm font-medium">
+          <a href="#rubrique1" class="text-slate-600 hover:text-univ transition-colors">1. Travaux</a>
+          <a href="#rubrique2" class="text-slate-600 hover:text-univ transition-colors">2. Notes</a>
+          <a href="#rubrique3" class="text-slate-600 hover:text-univ transition-colors">3. Docs SI</a>
+          <a href="#rubrique4" class="text-slate-600 hover:text-univ transition-colors">4. Certifs</a>
+          <a href="#rubrique5" class="text-slate-600 hover:text-univ transition-colors">5. Projet</a>
+          <a href="#rubrique6" class="text-slate-600 hover:text-univ transition-colors">6. Soutenance</a>
+          <a href="#rubrique7" class="text-slate-600 hover:text-univ transition-colors">7. Ressources</a>
+        </div>
+
+        <!-- Bouton Menu Mobile -->
+        <div class="lg:hidden flex items-center">
+          <button class="text-slate-600 hover:text-slate-900 focus:outline-none p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Mobile (Déroulant) -->
+    <div class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg" id="mobile-menu">
+      <div class="px-4 pt-2 pb-4 space-y-1">
+        <a href="#rubrique1" class="block py-2 text-slate-700 font-medium">Rubrique 1: Travaux demandés</a>
+        <a href="#rubrique2" class="block py-2 text-slate-700 font-medium">Rubrique 2: Notes de cours</a>
+        <a href="#rubrique3" class="block py-2 text-slate-700 font-medium">Rubrique 3: Documents SI</a>
+        <a href="#rubrique4" class="block py-2 text-slate-700 font-medium">Rubrique 4: Certifications</a>
+        <a href="#rubrique5" class="block py-2 text-slate-700 font-medium">Rubrique 5: Projet Final</a>
+        <a href="#rubrique6" class="block py-2 text-slate-700 font-medium">Rubrique 6: Soutenance</a>
+        <a href="#rubrique7" class="block py-2 text-slate-700 font-medium">Rubrique 7: Ressources</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- En-tête / Introduction -->
+  <header class="pt-32 pb-16 bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-white uppercase bg-univ rounded-full animate-fade-in-up">
+        Semestre 5 - Parcours MIAGE
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+        Introduction aux <br><span class="text-accent">Systèmes d'Information</span>
+      </h1>
+      <p class="text-xl text-slate-500 mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+        Portfolio de compétences réalisé par <strong>Romain Thierry</strong>. <br>
+        Ce portfolio centralise l'ensemble des productions académiques du module.
+      </p>
+      
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-400 animate-fade-in-up" style="animation-delay: 0.3s;">
+        <span class="flex items-center"><i class="fas fa-university mr-2"></i> Université Paris Nanterre</span>
+        <span class="flex items-center"><i class="fas fa-envelope mr-2"></i> 43010388@parisnanterre.fr</span>
+      </div>
+    </div>
   </header>
 
-  <section id="about" class="py-12 max-w-5xl mx-auto fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">À propos</h2>
-    <p class="text-lg text-center">Je suis Romain Thierry, étudiant en MIAGE Semestre 5. Ce portfolio centralise tous mes travaux pour le module Introduction aux Systèmes d'Information.</p>
-  </section>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
 
-  <section id="skills" class="py-12 max-w-5xl mx-auto bg-white fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">Compétences</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-      <div class="p-4"><i class="fas fa-code text-2xl text-blue-500"></i><p class="mt-2">HTML/CSS/JS</p></div>
-      <div class="p-4"><i class="fab fa-git text-2xl text-orange-500"></i><p class="mt-2">Git (init, add, commit, push)</p></div>
-      <div class="p-4"><i class="fas fa-database text-2xl text-green-500"></i><p class="mt-2">Systèmes d'Information</p></div>
-      <div class="p-4"><i class="fas fa-file-pdf text-2xl text-red-500"></i><p class="mt-2">Gestion de Documents</p></div>
-    </div>
-  </section>
+    <!-- RUBRIQUE 1: TRAVAUX DEMANDÉS -->
+    <section id="rubrique1" class="scroll-mt-28">
+      <div class="flex items-center mb-8 border-b border-slate-200 pb-4">
+        <div class="rubric-number">1</div>
+        <h2 class="rubric-title">Travaux Demandés</h2>
+      </div>
+      
+      <p class="text-slate-600 mb-8 max-w-3xl">
+        Dépôt des dossiers réalisés en classe. Cette section témoigne de la maîtrise des outils de gestion (PGI) et de planification (Gantt).
+      </p>
 
-  <section id="travaux" class="py-12 max-w-5xl mx-auto fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 1 : Travaux Demandés</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="item bg-white p-6 rounded-lg shadow-lg">
-        <h3 class="text-xl font-bold">Travail 1</h3>
-        <p class="mt-2">
-          Description. 
-          <a href="td_PGI_exercice.pdf" target="_blank" class="text-blue-500 hover:underline">Télécharger PDF</a>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Carte 1: PGI -->
+        <article class="glass-card rounded-xl overflow-hidden flex flex-col h-full">
+          <div class="h-40 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+            <i class="fas fa-database text-5xl text-blue-500 opacity-80"></i>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-blue-600 bg-blue-100 px-2 py-1 rounded">TD Gestion</span>
+              <span class="text-xs text-green-600 bg-green-100 px-2 py-1 rounded"><i class="fas fa-check mr-1"></i>Rendu</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Exercice PGI (Senghor)</h3>
+            <p class="text-slate-600 text-sm mb-6 flex-1">
+              Simulation complète sur un Progiciel de Gestion Intégré : gestion des modules RH, Vente, Stock et Achat pour un concessionnaire automobile.
+            </p>
+            <button onclick="openPreview('td_PGI_exercice.pdf', 'TD PGI - Exercice Concessionnaire')" class="w-full py-2 rounded-lg border border-slate-300 hover:border-univ hover:text-univ hover:bg-blue-50 transition-all font-medium text-sm flex items-center justify-center gap-2">
+              <i class="far fa-file-pdf"></i> Voir le PDF
+            </button>
+          </div>
+        </article>
+
+        <!-- Carte 2: GANTT -->
+        <article class="glass-card rounded-xl overflow-hidden flex flex-col h-full">
+          <div class="h-40 bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center">
+            <i class="fas fa-project-diagram text-5xl text-emerald-500 opacity-80"></i>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+             <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-emerald-600 bg-emerald-100 px-2 py-1 rounded">TP Projet</span>
+              <span class="text-xs text-green-600 bg-green-100 px-2 py-1 rounded"><i class="fas fa-check mr-1"></i>Rendu</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Planification Gantt</h3>
+            <p class="text-slate-600 text-sm mb-6 flex-1">
+              Organisation du projet "Proj'Info". Calcul des charges, antériorités et chemin critique pour l'élaboration du planning.
+            </p>
+            <div class="flex flex-col gap-2 mt-auto">
+              <button onclick="openPreview('Online Gantt 20251013.pdf', 'Diagramme de Gantt')" class="w-full py-2 rounded-lg bg-univ text-white hover:bg-blue-900 transition-all font-medium text-sm flex items-center justify-center gap-2">
+                <i class="fas fa-chart-bar"></i> Voir le Diagramme
+              </button>
+              <button onclick="openPreview('tp gantt.docx', 'Sujet TP Gantt')" class="w-full py-2 rounded-lg border border-slate-300 hover:bg-slate-50 transition-all font-medium text-sm flex items-center justify-center gap-2">
+                <i class="fas fa-file-word"></i> Voir le Sujet (DOCX)
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- RUBRIQUE 2: NOTES DE COURS -->
+    <section id="rubrique2" class="scroll-mt-28">
+      <div class="flex items-center mb-8 border-b border-slate-200 pb-4">
+        <div class="rubric-number">2</div>
+        <h2 class="rubric-title">Notes de Cours Individuelles</h2>
+      </div>
+      
+      <div class="bg-white rounded-xl p-8 border border-dashed border-slate-300 text-center">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 text-yellow-600 mb-4">
+          <i class="fas fa-pen-nib"></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900">Prises de notes</h3>
+        <p class="text-slate-500 mt-2 mb-6 max-w-md mx-auto text-sm">
+          Cette section sera alimentée par mes synthèses personnelles des séances de cours (Séance 1, Séance 2, etc.).
         </p>
+        <span class="inline-block px-4 py-2 bg-slate-100 text-slate-500 rounded text-sm">
+          En cours de rédaction...
+        </span>
       </div>
-      <!-- Ajoute d'autres travaux ici -->
-    </div>
-  </section>
+    </section>
 
-  <section id="notes" class="py-12 max-w-5xl mx-auto bg-white fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 2 : Notes de Cours Individuelles</h2>
-    <div class="item bg-white p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-bold">Notes Séance 1</h3>
-      <p class="mt-2">Contenu des notes ici, ou <a href="/notes/notes1.pdf" target="_blank" class="text-blue-500 hover:underline">Voir PDF</a>.</p>
-    </div>
-  </section>
-
-  <section id="documents" class="py-12 max-w-5xl mx-auto fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 3 : Documents d'un Système d'Information</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="item bg-white p-6 rounded-lg shadow-lg">
-        <h3 class="text-xl font-bold">Document 1</h3>
-        <p class="mt-2">Description. <a href="/documents/doc1.pdf" target="_blank" class="text-blue-500 hover:underline">Voir Document</a></p>
+    <!-- RUBRIQUE 3: DOCUMENTS SI -->
+    <section id="rubrique3" class="scroll-mt-28">
+      <div class="flex items-center mb-8 border-b border-slate-200 pb-4">
+        <div class="rubric-number">3</div>
+        <h2 class="rubric-title">Documents d'un Système d'Information</h2>
       </div>
-    </div>
-  </section>
-
-  <section id="certifications" class="py-12 max-w-5xl mx-auto bg-white fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 4 : Les Certifications</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="item bg-white p-6 rounded-lg shadow-lg">
-        <h3 class="text-xl font-bold">Certification 1</h3>
-        <p class="mt-2"><a href="/certifications/cert1.pdf" target="_blank" class="text-blue-500 hover:underline">Voir Certificat</a></p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <i class="fas fa-file-invoice-dollar text-slate-400 text-xl"></i>
+            <h3 class="font-bold text-slate-800">Documents Administratifs</h3>
+          </div>
+          <p class="text-sm text-slate-600 mb-4">Analyse de factures, bons de commande et devis pour comprendre les flux d'information.</p>
+          <a href="#" class="text-sm text-univ font-medium hover:underline">Voir les documents &rarr;</a>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <i class="fas fa-sitemap text-slate-400 text-xl"></i>
+            <h3 class="font-bold text-slate-800">Modèles de Flux</h3>
+          </div>
+          <p class="text-sm text-slate-600 mb-4">Schémas représentant la circulation de l'information entre les acteurs du SI.</p>
+          <a href="#" class="text-sm text-univ font-medium hover:underline">Voir les schémas &rarr;</a>
+        </div>
       </div>
+    </section>
+
+    <!-- RUBRIQUE 4: CERTIFICATIONS -->
+    <section id="rubrique4" class="scroll-mt-28">
+      <div class="flex items-center mb-8 border-b border-slate-200 pb-4">
+        <div class="rubric-number">4</div>
+        <h2 class="rubric-title">Les Certifications</h2>
+      </div>
+      
+      <div class="glass-card p-6 rounded-xl">
+        <p class="text-slate-600 mb-4">
+          Valorisation des compétences techniques et méthodologiques acquises via des formations complémentaires (MOOCs, Pix, LinkedIn Learning).
+        </p>
+        
+        <!-- Placeholder Certification -->
+        <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
+          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-orange-500 text-xl">
+            <i class="fas fa-award"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-800">Espace Certification</h4>
+            <p class="text-xs text-slate-500">Attestation à déposer ici (Format PDF ou Image)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RUBRIQUE 5: PROJET FINAL -->
+    <section id="rubrique5" class="scroll-mt-28">
+      <div class="flex items-center mb-8 border-b border-slate-200 pb-4">
+        <div class="rubric-number">5</div>
+        <h2 class="rubric-title">Le Projet Final</h2>
+      </div>
+      
+      <div class="bg-slate-900 text-white rounded-xl p-8 shadow-xl relative overflow-hidden">
+        <!-- Décoration -->
+        <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-univ rounded-full opacity-20 blur-2xl"></div>
+        
+        <div class="relative z-10">
+          <h3 class="text-xl font-bold mb-2"><i class="fas fa-rocket text-accent mr-2"></i>Conception de SI</h3>
+          <p class="text-slate-300 text-sm mb-6 max-w-2xl">
+            Cette rubrique accueillera le dossier complet du projet de fin de semestre. Il intégrera l'analyse des besoins, la modélisation et les préconisations pour le système d'information étudié.
+          </p>
+          <button class="px-5 py-2 bg-white/10 hover:bg-white/20 rounded border border-white/20 text-sm font-medium transition-colors cursor-default">
+            Livrable attendu fin de semestre
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RUBRIQUE 6: DIAPORAMA -->
+    <section id="rubrique6" class="scroll-mt-28">
+      <div class="flex items-center mb-8 border-b border-slate-200 pb-4">
+        <div class="rubric-number">6</div>
+        <h2 class="rubric-title">Diaporama pour la Soutenance</h2>
+      </div>
+      
+      <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-center justify-between">
+        <div>
+          <h3 class="font-bold text-slate-800">Support de présentation orale</h3>
+          <p class="text-sm text-slate-500">Format PPTX ou PDF.</p>
+        </div>
+        <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-400">
+          <i class="fas fa-desktop"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- RUBRIQUE 7: AUTRES RESSOURCES -->
+    <section id="rubrique7" class="scroll-mt-28 pb-10">
+      <div class="flex items-center mb-8 border-b border-slate-200 pb-4">
+        <div class="rubric-number">7</div>
+        <h2 class="rubric-title">Autres Ressources</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Veille Techno -->
+        <div class="glass-card p-6 rounded-xl">
+          <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-100 pb-2">
+            <i class="fas fa-rss text-univ mr-2"></i>Veille Technologique
+          </h3>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="https://www.cigref.fr/" target="_blank" class="flex items-center text-slate-600 hover:text-accent transition-colors group">
+                <i class="fas fa-external-link-alt text-xs mr-2 opacity-50 group-hover:opacity-100"></i>
+                CIGREF - Réseau de grandes entreprises
+              </a>
+            </li>
+            <li>
+              <a href="https://www.lemagit.fr/" target="_blank" class="flex items-center text-slate-600 hover:text-accent transition-colors group">
+                <i class="fas fa-external-link-alt text-xs mr-2 opacity-50 group-hover:opacity-100"></i>
+                LeMagIT - Actualité informatique
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Outils & Méthodes -->
+        <div class="glass-card p-6 rounded-xl">
+          <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-100 pb-2">
+            <i class="fas fa-tools text-univ mr-2"></i>Outils & Méthodes
+          </h3>
+          <ul class="space-y-3 text-sm">
+             <li>
+              <a href="#" class="flex items-center text-slate-600 hover:text-accent transition-colors group">
+                <i class="fas fa-chevron-right text-xs mr-2 opacity-50"></i>
+                Méthode MERISE (Modélisation)
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center text-slate-600 hover:text-accent transition-colors group">
+                <i class="fas fa-chevron-right text-xs mr-2 opacity-50"></i>
+                Notion de base sur les ERP / PGI
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="bg-slate-900 text-white py-12 mt-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-lg font-bold mb-2">Portfolio Universitaire</p>
+      <p class="text-slate-400 text-sm mb-6">Introduction aux Systèmes d'Information - MIAGE Semestre 5</p>
+      <p class="text-xs text-slate-600">&copy; 2025 Romain Thierry - Hébergé sur GitHub Pages</p>
     </div>
-  </section>
-
-  <section id="projet" class="py-12 max-w-5xl mx-auto fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 5 : Le Projet Final</h2>
-    <div class="item bg-white p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-bold">Projet Final</h3>
-      <p class="mt-2">Description du projet. <a href="/projet/projet_final.pdf" target="_blank" class="text-blue-500 hover:underline">Documentation</a> | <a href="https://github.com/tonprofil/projet" target="_blank">Code sur GitHub</a></p>
-    </div>
-  </section>
-
-  <section id="diaporama" class="py-12 max-w-5xl mx-auto bg-white fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 6 : Diaporama pour la Soutenance</h2>
-    <div class="item bg-white p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-bold">Diaporama</h3>
-      <p class="mt-2"><a href="/diaporama/soutenance.pptx" target="_blank" class="text-blue-500 hover:underline">Télécharger PPTX</a> ou <object data="/diaporama/soutenance.pdf" type="application/pdf" width="100%" height="500px"></object></p>
-    </div>
-  </section>
-
-  <section id="ressources" class="py-12 max-w-5xl mx-auto fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">Rubrique 7 : Autres Ressources</h2>
-    <ul class="list-disc pl-6">
-      <li><a href="https://example.com/ressource1" target="_blank" class="text-blue-500 hover:underline">Ressource 1 (référencée)</a></li>
-    </ul>
-  </section>
-
-  <section id="contact" class="py-12 max-w-5xl mx-auto fade-in">
-    <h2 class="text-3xl font-semibold text-center mb-6">Contact</h2>
-    <p class="text-lg text-center"><i class="fas fa-envelope mr-2"></i> 43010388@parisnanterre.fr</p>
-    <p class="text-lg text-center mt-2"><i class="fab fa-github mr-2"></i> <a href="https://github.com/tonprofil" target="_blank" class="text-blue-500 hover:underline">Mon GitHub</a></p>
-  </section>
-
-  <footer class="bg-gray-900 text-white text-center py-6">
-    <p>&copy; 2025 Romain Thierry - Hébergé sur GitHub Pages</p>
   </footer>
 
+  <!-- MODALE DE PREVISUALISATION -->
+  <div id="previewModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <!-- Fond sombre -->
+    <div class="absolute inset-0 bg-slate-900 bg-opacity-90 transition-opacity backdrop-blur-sm" onclick="closePreview()"></div>
+
+    <!-- Conteneur Modale -->
+    <div class="fixed inset-0 z-10 overflow-y-auto">
+      <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+        
+        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-6xl h-[90vh] flex flex-col">
+          
+          <!-- Header de la modale -->
+          <div class="bg-slate-50 px-4 py-3 sm:px-6 flex justify-between items-center border-b border-slate-200">
+            <h3 class="text-lg font-semibold leading-6 text-slate-900" id="modalTitle">Aperçu</h3>
+            <div class="flex gap-2">
+               <a id="downloadLink" href="#" download class="px-3 py-1 bg-slate-200 hover:bg-slate-300 rounded text-slate-700 text-sm font-medium transition-colors">
+                <i class="fas fa-download mr-1"></i> Télécharger
+              </a>
+              <button type="button" class="rounded-md text-slate-400 hover:text-slate-600 focus:outline-none" onclick="closePreview()">
+                <i class="fas fa-times text-2xl"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Corps de la modale (Iframe) -->
+          <div class="flex-1 bg-slate-100 relative w-full h-full">
+             <!-- Indicateur de chargement -->
+             <div id="loader" class="absolute inset-0 flex items-center justify-center">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-univ"></div>
+             </div>
+             
+             <!-- Visualiseur -->
+             <iframe id="previewFrame" class="w-full h-full border-0 hidden" src="" onload="document.getElementById('loader').style.display='none'"></iframe>
+             
+             <!-- Fallback si pas de prévisualisation possible (ex: docx) -->
+             <div id="noPreview" class="hidden absolute inset-0 flex flex-col items-center justify-center p-10 text-center">
+                <i class="fas fa-file-download text-6xl text-slate-300 mb-4"></i>
+                <p class="text-slate-600 text-lg mb-4">L'aperçu n'est pas disponible pour ce format de fichier.</p>
+                <a id="fallbackLink" href="#" target="_blank" class="px-6 py-3 bg-univ text-white rounded-lg font-bold hover:bg-blue-900 transition-colors">
+                  Télécharger / Ouvrir le fichier
+                </a>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script JS pour la gestion de la modale (Sans IA) -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const elements = document.querySelectorAll('.fade-in');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      elements.forEach(element => observer.observe(element));
+    const modal = document.getElementById('previewModal');
+    const frame = document.getElementById('previewFrame');
+    const modalTitle = document.getElementById('modalTitle');
+    const loader = document.getElementById('loader');
+    const noPreview = document.getElementById('noPreview');
+    const downloadLink = document.getElementById('downloadLink');
+    const fallbackLink = document.getElementById('fallbackLink');
+
+    function openPreview(url, title) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Empêche le scroll de la page
+      
+      modalTitle.innerText = title || 'Aperçu du document';
+      downloadLink.href = url;
+      fallbackLink.href = url;
+      
+      // Reset de l'affichage
+      loader.style.display = 'flex';
+      frame.style.display = 'none';
+      noPreview.style.display = 'none';
+      frame.src = '';
+
+      // Vérification simple de l'extension
+      const ext = url.split('.').pop().toLowerCase();
+      
+      // Liste des formats affichables dans une iframe
+      if (['pdf', 'jpg', 'jpeg', 'png', 'html', 'txt'].includes(ext)) {
+        setTimeout(() => {
+           frame.src = url;
+           frame.style.display = 'block';
+        }, 300);
+      } else {
+        // Pour docx, zip, etc. -> Afficher le message de fallback
+        loader.style.display = 'none';
+        noPreview.style.display = 'flex';
+      }
+    }
+
+    function closePreview() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto'; // Réactive le scroll
+      frame.src = '';
+    }
+
+    // Fermeture avec la touche Echap
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        closePreview();
+      }
     });
   </script>
 </body>
