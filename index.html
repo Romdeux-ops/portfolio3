@@ -6,17 +6,16 @@
   <title>Portfolio - Introduction aux SI - Romain Thierry</title>
   <meta name="description" content="Portfolio académique MIAGE - Introduction aux Systèmes d'Information - Semestre 5">
   
-  <!-- Tailwind CSS (Via CDN pour ne pas avoir de fichiers locaux complexes) -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Font Awesome pour les icônes -->
+  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   
-  <!-- Google Fonts: Inter pour un look moderne et académique -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <script>
-    // Configuration Tailwind
     tailwind.config = {
       theme: {
         extend: {
@@ -24,8 +23,8 @@
             sans: ['Inter', 'sans-serif'],
           },
           colors: {
-            univ: '#1e3a8a', // Bleu universitaire sérieux
-            accent: '#2563eb', // Bleu vif pour les interactions
+            univ: '#1e3a8a',
+            accent: '#2563eb',
           },
           animation: {
             'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
@@ -42,14 +41,12 @@
   </script>
 
   <style>
-    /* Fond global propre et moderne */
     body {
       background-color: #f8fafc;
       background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
       background-size: 32px 32px;
     }
 
-    /* Effet de verre pour les cartes */
     .glass-card {
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
@@ -63,14 +60,12 @@
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
-    /* Navigation fixe avec flou */
     .nav-glass {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(226, 232, 240, 1);
     }
 
-    /* Indicateur de rubrique */
     .rubric-number {
       display: flex;
       align-items: center;
@@ -99,12 +94,9 @@
   <nav class="fixed w-full z-50 nav-glass" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16 items-center">
-        <!-- Logo / Nom -->
         <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
           <span class="font-bold text-xl text-univ tracking-tight">PORTFOLIO<span class="text-accent">.MIAGE</span></span>
         </div>
-        
-        <!-- Menu Desktop (Liens rapides) -->
         <div class="hidden lg:flex space-x-6 items-center text-sm font-medium">
           <a href="#rubrique1" class="text-slate-600 hover:text-univ transition-colors">1. Travaux</a>
           <a href="#rubrique2" class="text-slate-600 hover:text-univ transition-colors">2. Notes</a>
@@ -114,8 +106,6 @@
           <a href="#rubrique6" class="text-slate-600 hover:text-univ transition-colors">6. Soutenance</a>
           <a href="#rubrique7" class="text-slate-600 hover:text-univ transition-colors">7. Ressources</a>
         </div>
-
-        <!-- Bouton Menu Mobile -->
         <div class="lg:hidden flex items-center">
           <button class="text-slate-600 hover:text-slate-900 focus:outline-none p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
             <i class="fas fa-bars text-xl"></i>
@@ -123,8 +113,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Menu Mobile (Déroulant) -->
     <div class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg" id="mobile-menu">
       <div class="px-4 pt-2 pb-4 space-y-1">
         <a href="#rubrique1" class="block py-2 text-slate-700 font-medium">Rubrique 1: Travaux demandés</a>
@@ -138,7 +126,7 @@
     </div>
   </nav>
 
-  <!-- En-tête / Introduction -->
+  <!-- En-tête -->
   <header class="pt-32 pb-16 bg-white border-b border-slate-200">
     <div class="max-w-4xl mx-auto px-4 text-center">
       <div class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-white uppercase bg-univ rounded-full animate-fade-in-up">
@@ -151,7 +139,6 @@
         Portfolio de compétences réalisé par <strong>Romain Thierry</strong>. <br>
         Ce portfolio centralise l'ensemble des productions académiques du module.
       </p>
-      
       <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-400 animate-fade-in-up" style="animation-delay: 0.3s;">
         <span class="flex items-center"><i class="fas fa-university mr-2"></i> Université Paris Nanterre</span>
         <span class="flex items-center"><i class="fas fa-envelope mr-2"></i> 43010388@parisnanterre.fr</span>
@@ -167,13 +154,10 @@
         <div class="rubric-number">1</div>
         <h2 class="rubric-title">Travaux Demandés</h2>
       </div>
-      
       <p class="text-slate-600 mb-8 max-w-3xl">
         Dépôt des dossiers réalisés en classe. Cette section témoigne de la maîtrise des outils de gestion (PGI), de planification (Gantt) et de modélisation.
       </p>
-
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
         <!-- Carte 1: PGI -->
         <article class="glass-card rounded-xl overflow-hidden flex flex-col h-full">
           <div class="h-40 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
@@ -298,7 +282,6 @@
             </button>
           </div>
         </article>
-
       </div>
     </section>
 
@@ -309,17 +292,60 @@
         <h2 class="rubric-title">Notes de Cours Individuelles</h2>
       </div>
       
-      <div class="bg-white rounded-xl p-8 border border-dashed border-slate-300 text-center">
-        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 text-yellow-600 mb-4">
-          <i class="fas fa-pen-nib"></i>
-        </div>
-        <h3 class="text-lg font-semibold text-slate-900">Prises de notes</h3>
-        <p class="text-slate-500 mt-2 mb-6 max-w-md mx-auto text-sm">
-          Cette section sera alimentée par mes synthèses personnelles des séances de cours (Séance 1, Séance 2, etc.).
-        </p>
-        <span class="inline-block px-4 py-2 bg-slate-100 text-slate-500 rounded text-sm">
-          En cours de rédaction...
-        </span>
+      <p class="text-slate-600 mb-8 max-w-3xl">
+        Mes synthèses personnelles des séances de cours, reprenant les concepts fondamentaux du module.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Cours 1: Introduction SI -->
+        <article class="glass-card rounded-xl overflow-hidden flex flex-col h-full">
+          <div class="h-32 bg-gradient-to-br from-yellow-50 to-amber-100 flex items-center justify-center">
+            <i class="fas fa-book-open text-4xl text-amber-500 opacity-80"></i>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Introduction SI & PGI</h3>
+            <p class="text-slate-600 text-sm mb-4 flex-1">
+              Comprendre la distinction entre Système d'Information (SI) et Progiciel de Gestion Intégré (PGI/ERP). Rôle d'Odoo dans la gestion d'entreprise.
+            </p>
+            <button onclick="openPreview('SI COURS.pdf', 'Cours - Introduction SI et PGI')" class="w-full py-2 rounded-lg border border-slate-300 hover:border-univ hover:text-univ hover:bg-amber-50 transition-all font-medium text-sm flex items-center justify-center gap-2">
+              <i class="far fa-file-pdf"></i> Lire le Cours
+            </button>
+          </div>
+        </article>
+
+        <!-- Cours 2: Gestion de Projet -->
+        <article class="glass-card rounded-xl overflow-hidden flex flex-col h-full">
+          <div class="h-32 bg-gradient-to-br from-yellow-50 to-amber-100 flex items-center justify-center">
+            <i class="fas fa-tasks text-4xl text-amber-500 opacity-80"></i>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Gestion de Projet SI</h3>
+            <p class="text-slate-600 text-sm mb-4 flex-1">
+              Méthodologies de gestion de projet : Cycle en V (traditionnel), Méthodes Agiles (Scrum) et Prince2. Rôles des acteurs et cycle de vie.
+            </p>
+            <button onclick="openPreview('cours gestion de projet version étudiant.pdf', 'Cours - Gestion de Projet SI')" class="w-full py-2 rounded-lg border border-slate-300 hover:border-univ hover:text-univ hover:bg-amber-50 transition-all font-medium text-sm flex items-center justify-center gap-2">
+              <i class="far fa-file-pdf"></i> Lire le Cours
+            </button>
+          </div>
+        </article>
+
+        <!-- Cours 3: Livrables SI -->
+        <article class="glass-card rounded-xl overflow-hidden flex flex-col h-full">
+          <div class="h-32 bg-gradient-to-br from-yellow-50 to-amber-100 flex items-center justify-center">
+            <i class="fas fa-file-contract text-4xl text-amber-500 opacity-80"></i>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Les Livrables du SI</h3>
+            <p class="text-slate-600 text-sm mb-4 flex-1">
+              Synthèse des documents clés par phase : Analyse (Cahier des charges), Conception (SFG, SFD, UML), Développement et Tests.
+            </p>
+            <button onclick="openPreview('les livrables SI (Cours).pdf', 'Cours - Les Livrables du SI')" class="w-full py-2 rounded-lg border border-slate-300 hover:border-univ hover:text-univ hover:bg-amber-50 transition-all font-medium text-sm flex items-center justify-center gap-2">
+              <i class="far fa-file-pdf"></i> Lire le Cours
+            </button>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -482,16 +508,10 @@
 
   <!-- MODALE DE PREVISUALISATION -->
   <div id="previewModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <!-- Fond sombre -->
     <div class="absolute inset-0 bg-slate-900 bg-opacity-90 transition-opacity backdrop-blur-sm" onclick="closePreview()"></div>
-
-    <!-- Conteneur Modale -->
     <div class="fixed inset-0 z-10 overflow-y-auto">
       <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-        
         <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-6xl h-[90vh] flex flex-col">
-          
-          <!-- Header de la modale -->
           <div class="bg-slate-50 px-4 py-3 sm:px-6 flex justify-between items-center border-b border-slate-200">
             <h3 class="text-lg font-semibold leading-6 text-slate-900" id="modalTitle">Aperçu</h3>
             <div class="flex gap-2">
@@ -503,18 +523,11 @@
               </button>
             </div>
           </div>
-
-          <!-- Corps de la modale (Iframe) -->
           <div class="flex-1 bg-slate-100 relative w-full h-full">
-             <!-- Indicateur de chargement -->
              <div id="loader" class="absolute inset-0 flex items-center justify-center">
                 <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-univ"></div>
              </div>
-             
-             <!-- Visualiseur -->
              <iframe id="previewFrame" class="w-full h-full border-0 hidden" src="" onload="document.getElementById('loader').style.display='none'"></iframe>
-             
-             <!-- Fallback si pas de prévisualisation possible (ex: docx) -->
              <div id="noPreview" class="hidden absolute inset-0 flex flex-col items-center justify-center p-10 text-center">
                 <i class="fas fa-file-download text-6xl text-slate-300 mb-4"></i>
                 <p class="text-slate-600 text-lg mb-4">L'aperçu n'est pas disponible pour ce format de fichier.</p>
@@ -528,7 +541,6 @@
     </div>
   </div>
 
-  <!-- Script JS pour la gestion de la modale (Sans IA) -->
   <script>
     const modal = document.getElementById('previewModal');
     const frame = document.getElementById('previewFrame');
@@ -540,29 +552,24 @@
 
     function openPreview(url, title) {
       modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden'; // Empêche le scroll de la page
+      document.body.style.overflow = 'hidden';
       
       modalTitle.innerText = title || 'Aperçu du document';
       downloadLink.href = url;
       fallbackLink.href = url;
       
-      // Reset de l'affichage
       loader.style.display = 'flex';
       frame.style.display = 'none';
       noPreview.style.display = 'none';
       frame.src = '';
 
-      // Vérification simple de l'extension
       const ext = url.split('.').pop().toLowerCase();
-      
-      // Liste des formats affichables dans une iframe
       if (['pdf', 'jpg', 'jpeg', 'png', 'html', 'txt'].includes(ext)) {
         setTimeout(() => {
            frame.src = url;
            frame.style.display = 'block';
         }, 300);
       } else {
-        // Pour docx, zip, etc. -> Afficher le message de fallback
         loader.style.display = 'none';
         noPreview.style.display = 'flex';
       }
@@ -570,11 +577,10 @@
 
     function closePreview() {
       modal.classList.add('hidden');
-      document.body.style.overflow = 'auto'; // Réactive le scroll
+      document.body.style.overflow = 'auto';
       frame.src = '';
     }
 
-    // Fermeture avec la touche Echap
     document.addEventListener('keydown', function(event) {
       if (event.key === "Escape") {
         closePreview();
