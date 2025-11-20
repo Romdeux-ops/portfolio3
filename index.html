@@ -409,19 +409,110 @@
         <h2 class="rubric-title">Le Projet Final</h2>
       </div>
       
-      <div class="bg-slate-900 text-white rounded-xl p-8 shadow-xl relative overflow-hidden">
-        <!-- Décoration -->
-        <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-univ rounded-full opacity-20 blur-2xl"></div>
+      <div class="space-y-8">
         
-        <div class="relative z-10">
-          <h3 class="text-xl font-bold mb-2"><i class="fas fa-rocket text-accent mr-2"></i>Projet Web : Bander Shop</h3>
-          <p class="text-slate-300 text-sm mb-6 max-w-2xl">
-            Accès au site web réalisé dans le cadre du projet de fin de semestre.
-          </p>
-          <a href="https://bander-shop.kesug.com" target="_blank" class="px-5 py-2 bg-accent hover:bg-blue-600 rounded text-white text-sm font-bold transition-colors inline-flex items-center gap-2 shadow-lg">
-            <i class="fas fa-external-link-alt"></i> Accéder au site (Bander Shop)
-          </a>
+        <!-- Lien vers le site -->
+        <div class="bg-slate-900 text-white rounded-xl p-8 shadow-xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-univ rounded-full opacity-20 blur-2xl"></div>
+          <div class="relative z-10">
+            <h3 class="text-xl font-bold mb-2"><i class="fas fa-rocket text-accent mr-2"></i>Projet Web : Bander Shop</h3>
+            <p class="text-slate-300 text-sm mb-6 max-w-2xl">
+              Accès au site web e-commerce C2C réalisé dans le cadre du projet de fin de semestre.
+            </p>
+            <a href="https://bander-shop.kesug.com" target="_blank" class="px-5 py-2 bg-accent hover:bg-blue-600 rounded text-white text-sm font-bold transition-colors inline-flex items-center gap-2 shadow-lg">
+              <i class="fas fa-external-link-alt"></i> Accéder au site
+            </a>
+          </div>
         </div>
+
+        <!-- Dossier Livrables -->
+        <div>
+           <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+             <i class="fas fa-folder-open text-yellow-500 mr-2"></i> Dossier Livrables
+           </h3>
+           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+             
+             <!-- 1. Cahier des Charges -->
+             <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+               <div class="flex justify-between items-start mb-2">
+                 <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2 py-1 rounded">Analyse</span>
+                 <i class="fas fa-file-word text-blue-500 text-lg"></i>
+               </div>
+               <h4 class="font-bold text-slate-800 text-sm">Cahier des Charges</h4>
+               <p class="text-xs text-slate-500 mb-3 mt-1">Définition des besoins, contexte et objectifs.</p>
+               <button onclick="openPreview('Cahier des charges fonctionnel.odt', 'Cahier des Charges Fonctionnel')" class="text-xs font-medium text-accent hover:underline flex items-center">
+                 <i class="far fa-eye mr-1"></i> Aperçu
+               </button>
+             </div>
+
+             <!-- 2. Spécifications (SFG/SFD) -->
+             <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+               <div class="flex justify-between items-start mb-2">
+                 <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2 py-1 rounded">Fonctionnel</span>
+                 <i class="fas fa-file-alt text-blue-500 text-lg"></i>
+               </div>
+               <h4 class="font-bold text-slate-800 text-sm">Spécifications (SFG/SFD)</h4>
+               <p class="text-xs text-slate-500 mb-3 mt-1">Règles de gestion et cas d'utilisation détaillés.</p>
+               <button onclick="openPreview('(SFG-SFD) DOCUMENT DE SPÉCIFICATIONS FONCTIONNELLES.odt', 'Spécifications Fonctionnelles')" class="text-xs font-medium text-accent hover:underline flex items-center">
+                 <i class="far fa-eye mr-1"></i> Aperçu
+               </button>
+             </div>
+
+             <!-- 3. Modélisation (MCD/MLD) -->
+             <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+               <div class="flex justify-between items-start mb-2">
+                 <span class="text-xs font-bold bg-purple-100 text-purple-700 px-2 py-1 rounded">Conception</span>
+                 <i class="fas fa-database text-purple-500 text-lg"></i>
+               </div>
+               <h4 class="font-bold text-slate-800 text-sm">Modélisation Données</h4>
+               <p class="text-xs text-slate-500 mb-3 mt-1">Modèles Conceptuel et Logique (MCD/MLD).</p>
+               <button onclick="openPreview('MLD-MCD PROJET SI.odt', 'Modèles de Données (MCD/MLD)')" class="text-xs font-medium text-accent hover:underline flex items-center">
+                 <i class="far fa-eye mr-1"></i> Aperçu
+               </button>
+             </div>
+
+             <!-- 4. Diagramme Use Case -->
+             <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+               <div class="flex justify-between items-start mb-2">
+                 <span class="text-xs font-bold bg-purple-100 text-purple-700 px-2 py-1 rounded">UML</span>
+                 <i class="fas fa-project-diagram text-purple-500 text-lg"></i>
+               </div>
+               <h4 class="font-bold text-slate-800 text-sm">Diagramme Use Case</h4>
+               <p class="text-xs text-slate-500 mb-3 mt-1">Vue globale des acteurs et fonctionnalités.</p>
+               <button onclick="openPreview('diagramme use case bander shop.jpg', 'Diagramme de Cas d\'Utilisation')" class="text-xs font-medium text-accent hover:underline flex items-center">
+                 <i class="far fa-eye mr-1"></i> Voir l'image
+               </button>
+             </div>
+
+             <!-- 5. Manuel Utilisateur -->
+             <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+               <div class="flex justify-between items-start mb-2">
+                 <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded">Documentation</span>
+                 <i class="fas fa-book text-green-500 text-lg"></i>
+               </div>
+               <h4 class="font-bold text-slate-800 text-sm">Manuel Utilisateur</h4>
+               <p class="text-xs text-slate-500 mb-3 mt-1">Guide d'utilisation pour acheteurs et vendeurs.</p>
+               <button onclick="openPreview('Manuel Utilisateur.odt', 'Manuel Utilisateur')" class="text-xs font-medium text-accent hover:underline flex items-center">
+                 <i class="far fa-eye mr-1"></i> Aperçu
+               </button>
+             </div>
+
+             <!-- 6. Base de Données (SQL) -->
+             <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+               <div class="flex justify-between items-start mb-2">
+                 <span class="text-xs font-bold bg-gray-100 text-gray-700 px-2 py-1 rounded">Technique</span>
+                 <i class="fas fa-code text-gray-500 text-lg"></i>
+               </div>
+               <h4 class="font-bold text-slate-800 text-sm">Script SQL</h4>
+               <p class="text-xs text-slate-500 mb-3 mt-1">Structure et données de la BDD (e_boutique).</p>
+               <button onclick="openPreview('e_boutique (2).sql', 'Script SQL - Base de Données')" class="text-xs font-medium text-accent hover:underline flex items-center">
+                 <i class="far fa-eye mr-1"></i> Aperçu le code
+               </button>
+             </div>
+
+           </div>
+        </div>
+
       </div>
     </section>
 
