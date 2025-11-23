@@ -282,6 +282,47 @@
             </button>
           </div>
         </article>
+
+        <!-- Carte 7: Diagrammes de Classes -->
+        <article class="glass-card rounded-xl overflow-hidden flex flex-col h-full">
+          <div class="h-40 bg-gradient-to-br from-pink-50 to-pink-100 flex items-center justify-center">
+            <i class="fas fa-diagram-project text-5xl text-pink-500 opacity-80"></i>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+             <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-pink-600 bg-pink-100 px-2 py-1 rounded">TP UML</span>
+              <span class="text-xs text-green-600 bg-green-100 px-2 py-1 rounded"><i class="fas fa-check mr-1"></i>Rendu</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Diagrammes de Classes</h3>
+            <p class="text-slate-600 text-sm mb-6 flex-1">
+              Modélisation statique : Gestion de vols aériens et système de gestion de collège. Associations, cardinalités et héritage.
+            </p>
+            <button onclick="openPreview('Diagrammedeclasse.pdf', 'Diagrammes de Classes UML')" class="w-full py-2 rounded-lg border border-slate-300 hover:border-univ hover:text-univ hover:bg-pink-50 transition-all font-medium text-sm flex items-center justify-center gap-2">
+              <i class="far fa-file-pdf"></i> Voir le Diagramme
+            </button>
+          </div>
+        </article>
+
+        <!-- Carte 8: Use Case -->
+        <article class="glass-card rounded-xl overflow-hidden flex flex-col h-full">
+          <div class="h-40 bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center">
+            <i class="fas fa-user-gear text-5xl text-red-500 opacity-80"></i>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+             <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded">TP UML</span>
+              <span class="text-xs text-green-600 bg-green-100 px-2 py-1 rounded"><i class="fas fa-check mr-1"></i>Rendu</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Cas d'Utilisation (Use Case)</h3>
+            <p class="text-slate-600 text-sm mb-6 flex-1">
+              Analyse fonctionnelle : Réservation de ressources, processus de vente et guichet automatique bancaire.
+            </p>
+            <button onclick="openPreview('USECASE.pdf', 'Diagrammes de Cas d\'Utilisation')" class="w-full py-2 rounded-lg border border-slate-300 hover:border-univ hover:text-univ hover:bg-red-50 transition-all font-medium text-sm flex items-center justify-center gap-2">
+              <i class="far fa-file-pdf"></i> Voir les Use Cases
+            </button>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -523,14 +564,18 @@
         <h2 class="rubric-title">Diaporama pour la Soutenance</h2>
       </div>
       
-      <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-center justify-between">
+      <div class="bg-gradient-to-r from-slate-800 to-slate-900 text-white rounded-xl p-8 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <h3 class="font-bold text-slate-800">Support de présentation orale</h3>
-          <p class="text-sm text-slate-500">Format PPTX ou PDF.</p>
+          <h3 class="text-xl font-bold mb-2 flex items-center">
+            <i class="fas fa-presentation-screen text-orange-400 mr-3"></i> Soutenance Orale
+          </h3>
+          <p class="text-slate-300 text-sm max-w-lg">
+            Support visuel utilisé lors de la présentation du projet. Ce diaporama synthétise la démarche, les choix techniques et le bilan du projet.
+          </p>
         </div>
-        <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-400">
-          <i class="fas fa-desktop"></i>
-        </div>
+        <a href="https://docs.google.com/presentation/d/1RsTw5qqaYcZpp2gGVFa95M39Aw7AwPYtNsp16Tdwdnw/edit?usp=sharing" target="_blank" class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg shadow-md transition-all flex items-center whitespace-nowrap">
+          <i class="fab fa-google-drive mr-2"></i> Voir le Diaporama
+        </a>
       </div>
     </section>
 
