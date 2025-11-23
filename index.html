@@ -437,24 +437,50 @@
         <h2 class="rubric-title">Documents d'un Système d'Information</h2>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <i class="fas fa-file-invoice-dollar text-slate-400 text-xl"></i>
-            <h3 class="font-bold text-slate-800">Documents Administratifs</h3>
-          </div>
-          <p class="text-sm text-slate-600 mb-4">Analyse de factures, bons de commande et devis pour comprendre les flux d'information.</p>
-          <a href="#" class="text-sm text-univ font-medium hover:underline">Voir les documents &rarr;</a>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <i class="fas fa-sitemap text-slate-400 text-xl"></i>
-            <h3 class="font-bold text-slate-800">Modèles de Flux</h3>
+        <!-- Document 1: Facture -->
+        <div class="glass-card p-6 rounded-xl flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 bg-blue-100 rounded-lg text-blue-600">
+              <i class="fas fa-file-invoice text-xl"></i>
+            </div>
+            <h3 class="font-bold text-slate-800">Facture Client</h3>
           </div>
-          <p class="text-sm text-slate-600 mb-4">Schémas représentant la circulation de l'information entre les acteurs du SI.</p>
-          <a href="#" class="text-sm text-univ font-medium hover:underline">Voir les schémas &rarr;</a>
+          <p class="text-sm text-slate-600 mb-4 flex-1">Document comptable officiel généré par le PGI Odoo suite à une vente.</p>
+          <button onclick="openPreview('facture odoo.pdf', 'Exemple : Facture Client (Odoo)')" class="w-full py-2 rounded border border-slate-200 hover:bg-slate-50 text-sm font-medium text-slate-700 transition-colors">
+            Voir le document
+          </button>
         </div>
+
+        <!-- Document 2: Devis -->
+        <div class="glass-card p-6 rounded-xl flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 bg-orange-100 rounded-lg text-orange-600">
+              <i class="fas fa-file-signature text-xl"></i>
+            </div>
+            <h3 class="font-bold text-slate-800">Devis Commercial</h3>
+          </div>
+          <p class="text-sm text-slate-600 mb-4 flex-1">Proposition commerciale envoyée au prospect avant validation de la commande.</p>
+          <button onclick="openPreview('devis odoo.pdf', 'Exemple : Devis (Odoo)')" class="w-full py-2 rounded border border-slate-200 hover:bg-slate-50 text-sm font-medium text-slate-700 transition-colors">
+            Voir le document
+          </button>
+        </div>
+
+        <!-- Document 3: Bon de commande -->
+        <div class="glass-card p-6 rounded-xl flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 bg-green-100 rounded-lg text-green-600">
+              <i class="fas fa-dolly text-xl"></i>
+            </div>
+            <h3 class="font-bold text-slate-800">Bon de Commande</h3>
+          </div>
+          <p class="text-sm text-slate-600 mb-4 flex-1">Document envoyé au fournisseur pour déclencher un approvisionnement de stock.</p>
+          <button onclick="openPreview('BON de commande odooo.pdf', 'Exemple : Bon de Commande (Odoo)')" class="w-full py-2 rounded border border-slate-200 hover:bg-slate-50 text-sm font-medium text-slate-700 transition-colors">
+            Voir le document
+          </button>
+        </div>
+
       </div>
     </section>
 
